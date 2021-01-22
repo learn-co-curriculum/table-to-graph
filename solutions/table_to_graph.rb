@@ -1,5 +1,21 @@
 def table_to_graph(friends)
-  # type your code in here
+  data = friends.split(/<td>(\w*)<\/td>/)[1..-1]
+  graph = Hash.new { |h, k| h[k] = [] }
+  idx = 0
+
+  while idx < data.length - 1
+    friends_list = data[idx + 1][/<td>(.*?)<\/td>/m, 1].split(", ")
+    vertex = data[idx]
+    graph[vertex] = friends_list
+
+    friends_list.each do |friend| 
+      graph[friend] << vertex unless graph[friend].include?(vertex)
+    end
+
+    idx += 2
+  end
+
+  graph
 end
 
 if __FILE__ == $PROGRAM_NAME
