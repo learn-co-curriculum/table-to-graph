@@ -19,6 +19,10 @@ def table_to_graph(friends)
 end
 
 if __FILE__ == $PROGRAM_NAME
+  def print_results(hash)
+    hash.each { |key, val| puts "#{key}: #{val}" }
+  end
+
   friends = "<table><tr><th>Person</th><th>Friends</th></tr><tr><td>Fred</td><td>Jane, Carol, Anesh, Xi</td></tr><tr><td>Carol</td><td>Fred, Anesh, Janelle</td></tr></table>"
   result = {
     "Fred" => ["Jane", "Carol", "Anesh", "Xi"],
@@ -29,12 +33,38 @@ if __FILE__ == $PROGRAM_NAME
     "Janelle" => ["Carol"]
   }
 
-  puts "Expecting: #{result}"
-  puts table_to_graph(friends)
+  puts "Expecting: "
+  print_results(result)
+  puts
+  puts "Got: "
+  print_results(table_to_graph(friends))
 
   puts
 
-  # Don't forget to add your own!
+  friends = "<table><tr><th>Person</th><th>Friends</th></tr><tr><td>Gremlin</td><td>Jambaby, Carbonara, Hamtaro, Crain</td></tr><tr><td>Bats</td><td>Custard, Colonel</td></tr><tr><td>Malteser</td><td>Jambaby, Hamtaro, Bartelby, Viper</td></tr><tr><td>Viper</td><td>Malteser, Munchkin, Baconini, Bartelby</td></tr></table>"
+  result = {
+    "Gremlin": ["Jambaby", "Carbonara", "Hamtaro", "Crain"],
+    "Jambaby": ["Gremlin", "Malteser"],
+    "Carbonara": ["Gremlin"],
+    "Hamtaro": ["Gremlin", "Malteser"],
+    "Crain": ["Gremlin"],
+    "Bats": ["Custard", "Colonel"],
+    "Custard": ["Bats"],
+    "Colonel": ["Bats"],
+    "Malteser": ["Jambaby", "Hamtaro", "Bartelby", "Viper"],
+    "Bartelby": ["Malteser", "Viper"],
+    "Viper": ["Malteser", "Munchkin", "Baconini", "Bartelby"],
+    "Munchkin": ["Viper"],
+    "Baconini": ["Viper"]
+  }
+
+  puts "Expecting: "
+  print_results(result)
+  puts
+  puts "Got: "
+  print_results(table_to_graph(friends))
+
+  puts
 end
 
 # Please add your pseudocode to this file

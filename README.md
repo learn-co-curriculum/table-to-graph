@@ -2,7 +2,7 @@
 
 For this challenge, you'll be provided with a string of HTML representing a table of friends. You'll need to convert the table to an undirected graph. The final graph may be disconnected, i.e. there might not be a path from each person to every other person. The string will always contain a valid HTML table with entries in it, and the table will always have the same format: a header row followed by rows which contain the friends data, with two cells per row. 
 
-Note that the graph is a Hash/Object and the adjacency lists are arrays.
+Note that the returned graph is a Hash/Object and the adjacency lists are arrays.
 
 ```
 friends = "<table>
@@ -22,12 +22,12 @@ friends = "<table>
 
 table_to_graph(friends)
 => {
-  Fred: [Jane, Carol, Anesh, Xi],
-  Jane: [Fred],
-  Carol: [Fred, Anesh, Janelle],
-  Anesh: [Fred, Carol],
-  Xi: [Fred],
-  Janelle: [Carol]
+  "Fred": ["Jane", "Carol", "Anesh", "Xi"],
+  "Jane": ["Fred"],
+  "Carol": ["Fred", "Anesh", "Janelle"],
+  "Anesh": ["Fred", "Carol"],
+  "Xi": ["Fred"],
+  "Janelle": ["Carol"]
 }
 ```
 

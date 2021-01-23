@@ -3,6 +3,10 @@ def table_to_graph(friends)
 end
 
 if __FILE__ == $PROGRAM_NAME
+  def print_results(hash)
+    hash.each { |key, val| puts "#{key}: #{val}" }
+  end
+
   friends = "<table><tr><th>Person</th><th>Friends</th></tr><tr><td>Fred</td><td>Jane, Carol, Anesh, Xi</td></tr><tr><td>Carol</td><td>Fred, Anesh, Janelle</td></tr></table>"
   result = {
     "Fred" => ["Jane", "Carol", "Anesh", "Xi"],
@@ -13,8 +17,11 @@ if __FILE__ == $PROGRAM_NAME
     "Janelle" => ["Carol"]
   }
 
-  puts "Expecting: #{result}"
-  puts table_to_graph(friends)
+  puts "Expecting: "
+  print_results(result)
+  puts
+  puts "Got: "
+  print_results(table_to_graph(friends))
 
   puts
 
