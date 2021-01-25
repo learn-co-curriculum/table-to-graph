@@ -1,10 +1,11 @@
 def table_to_graph(friends)
-  data = friends.split(/<td>(\w*)<\/td>/)[1..-1]
+  data_string = friends[55..-19].gsub(/<\/tr><tr>/, "")
+  data = data_string.split("</td><td>")
   graph = Hash.new { |h, k| h[k] = [] }
   idx = 0
 
-  while idx < data.length - 1
-    friends_list = data[idx + 1][/<td>(.*?)<\/td>/m, 1].split(", ")
+  while idx < data.length
+    friends_list = (data[idx + 1] || "").split(", ")
     vertex = data[idx]
     graph[vertex] = friends_list
 
@@ -56,6 +57,33 @@ if __FILE__ == $PROGRAM_NAME
     "Viper": ["Malteser", "Munchkin", "Baconini", "Bartelby"],
     "Munchkin": ["Viper"],
     "Baconini": ["Viper"]
+  }
+
+  puts "Expecting: "
+  print_results(result)
+  puts
+  puts "Got: "
+  print_results(table_to_graph(friends))
+
+  puts
+
+  friends = "<table><tr><th>Person</th><th>Friends</th></tr><tr><td>Gremlin</td><td>Jambaby</td></tr></table>"
+  result = {
+    "Gremlin": ["Jambaby"],
+    "Jambaby": ["Gremlin"]
+  }
+
+  puts "Expecting: "
+  print_results(result)
+  puts
+  puts "Got: "
+  print_results(table_to_graph(friends))
+
+  puts
+
+  friends = "<table><tr><th>Person</th><th>Friends</th></tr><tr><td>Gremlin</td><td></td></tr></table>"
+  result = {
+    "Gremlin": []
   }
 
   puts "Expecting: "

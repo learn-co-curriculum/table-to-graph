@@ -3,6 +3,12 @@ function tableToGraph(friends) {
 }
 
 if (require.main === module) {
+  function printResults(obj) {
+    for (const key in obj) {
+      console.log(`${key}: ${obj[key]}`);
+    }
+  }
+
   // add your own tests in here
   const friends = "<table><tr><th>Person</th><th>Friends</th></tr><tr><td>Fred</td><td>Jane, Carol, Anesh, Xi</td></tr><tr><td>Carol</td><td>Fred, Anesh, Janelle</td></tr></table>";
   const result = {
@@ -15,9 +21,10 @@ if (require.main === module) {
   };
 
   console.log("Expecting: ");
-  console.log(result);
+  console.log(printResults(result));
+  console.log("");
   console.log("Got: ");
-  console.log(tableToGraph(friends));
+  console.log(printResults(tableToGraph(friends)));
 
   console.log("");
 }
