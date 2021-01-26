@@ -93,28 +93,21 @@ if __FILE__ == $PROGRAM_NAME
   print_results(table_to_graph(friends))
 
   puts
+
+  friends = "<table><tr><th>Person</th><th>Friends</th></tr><tr><td>Gremlin</td><td></td></tr><tr><td>Baconini</td><td></td></tr></table>"
+  result = {
+    "Gremlin": [],
+    "Baconini": []
+  }
+
+  puts "Expecting: "
+  print_results(result)
+  puts
+  puts "Got: "
+  print_results(table_to_graph(friends))
+
+  puts
 end
-
-# def table_to_graph(friends)
-#   data_string = friends[55..-19].gsub(/<\/tr><tr>/, "")
-#   data = data_string.split("</td><td>")
-#   graph = Hash.new { |h, k| h[k] = [] }
-#   idx = 0
-
-#   while idx < data.length
-#     friends_list = (data[idx + 1] || "").split(", ")
-#     vertex = data[idx]
-#     graph[vertex] = friends_list
-
-#     friends_list.each do |friend| 
-#       graph[friend] << vertex unless graph[friend].include?(vertex)
-#     end
-
-#     idx += 2
-#   end
-
-#   graph
-# end
 
 # Please add your pseudocode to this file
 #########################################################################################
