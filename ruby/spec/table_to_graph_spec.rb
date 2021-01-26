@@ -1,4 +1,4 @@
-require "../solutions/table_to_graph"
+require "./table_to_graph"
 
 RSpec.describe "table_to_graph" do
   it "converts an HTML table to a friends graph which is a Hash with array adjacency lists" do
