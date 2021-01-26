@@ -44,19 +44,19 @@ if __FILE__ == $PROGRAM_NAME
 
   friends = "<table><tr><th>Person</th><th>Friends</th></tr><tr><td>Gremlin</td><td>Jambaby, Carbonara, Hamtaro, Crain</td></tr><tr><td>Bats</td><td>Custard, Colonel</td></tr><tr><td>Malteser</td><td>Jambaby, Hamtaro, Bartelby, Viper</td></tr><tr><td>Viper</td><td>Malteser, Munchkin, Baconini, Bartelby</td></tr></table>"
   result = {
-    "Gremlin": ["Jambaby", "Carbonara", "Hamtaro", "Crain"],
-    "Jambaby": ["Gremlin", "Malteser"],
-    "Carbonara": ["Gremlin"],
-    "Hamtaro": ["Gremlin", "Malteser"],
-    "Crain": ["Gremlin"],
-    "Bats": ["Custard", "Colonel"],
-    "Custard": ["Bats"],
-    "Colonel": ["Bats"],
-    "Malteser": ["Jambaby", "Hamtaro", "Bartelby", "Viper"],
-    "Bartelby": ["Malteser", "Viper"],
-    "Viper": ["Malteser", "Munchkin", "Baconini", "Bartelby"],
-    "Munchkin": ["Viper"],
-    "Baconini": ["Viper"]
+    "Gremlin" => ["Jambaby", "Carbonara", "Hamtaro", "Crain"],
+    "Jambaby" => ["Gremlin", "Malteser"],
+    "Carbonara" => ["Gremlin"],
+    "Hamtaro" => ["Gremlin", "Malteser"],
+    "Crain" => ["Gremlin"],
+    "Bats" => ["Custard", "Colonel"],
+    "Custard" => ["Bats"],
+    "Colonel" => ["Bats"],
+    "Malteser" => ["Jambaby", "Hamtaro", "Bartelby", "Viper"],
+    "Bartelby" => ["Malteser", "Viper"],
+    "Viper" => ["Malteser", "Munchkin", "Baconini", "Bartelby"],
+    "Munchkin" => ["Viper"],
+    "Baconini" => ["Viper"]
   }
 
   puts "Expecting: "
@@ -69,8 +69,8 @@ if __FILE__ == $PROGRAM_NAME
 
   friends = "<table><tr><th>Person</th><th>Friends</th></tr><tr><td>Gremlin</td><td>Jambaby</td></tr></table>"
   result = {
-    "Gremlin": ["Jambaby"],
-    "Jambaby": ["Gremlin"]
+    "Gremlin" => ["Jambaby"],
+    "Jambaby" => ["Gremlin"]
   }
 
   puts "Expecting: "
@@ -83,7 +83,7 @@ if __FILE__ == $PROGRAM_NAME
 
   friends = "<table><tr><th>Person</th><th>Friends</th></tr><tr><td>Gremlin</td><td></td></tr></table>"
   result = {
-    "Gremlin": []
+    "Gremlin" => []
   }
 
   puts "Expecting: "
@@ -96,8 +96,8 @@ if __FILE__ == $PROGRAM_NAME
 
   friends = "<table><tr><th>Person</th><th>Friends</th></tr><tr><td>Gremlin</td><td></td></tr><tr><td>Baconini</td><td></td></tr></table>"
   result = {
-    "Gremlin": [],
-    "Baconini": []
+    "Gremlin" => [],
+    "Baconini" => []
   }
 
   puts "Expecting: "
