@@ -1,10 +1,26 @@
 # Days 1 to 2: Convert an HTML Table to a Graph
 
-For this challenge, you'll be provided with a string of HTML representing a table of friends. You'll need to convert the table to an undirected graph. The final graph may be disconnected, i.e. there might not be a path from each person to every other person. The string will always contain a valid HTML table with entries in it, and the table will always have the same format: a header row followed by rows which contain the friends data, with two cells per row. 
+## Learning Goals
 
-Note that the returned graph is a Hash/Object and the adjacency lists are arrays. Also, although the table stored in the string in the example below is spaced with carriage returns, the string provided to your function will not be. Instead, it'll always be a continuous string like so: `"<table><tr>..."`. Spacing is shown below to help you understand how the data is represented in the table.
+- Build a graph from an HTML string
 
-```
+## Introduction
+
+For this challenge, you'll be provided with a string of HTML representing a
+table of friends. You'll need to convert the table to an undirected graph. The
+final graph may be disconnected, i.e. there might not be a path from each person
+to every other person. The string will always contain a valid HTML table with
+entries in it, and the table will always have the same format: a header row
+followed by rows which contain the friends data, with two cells per row.
+
+Note that the returned graph is a Hash/Object and the adjacency lists are
+arrays. Also, although the table stored in the string in the example below is
+spaced with carriage returns, the string provided to your function will not be.
+Instead, it'll always be a continuous string like so: `"<table><tr>..."`.
+Spacing is shown below to help you understand how the data is represented in the
+table.
+
+```txt
 friends = "<table>
   <tr>
     <th>Person</th>
@@ -33,9 +49,10 @@ table_to_graph(friends)
 
 **Fork and then clone me!**
 
-Use the language of your choosing. We've included starter files for some languages where you can pseudocode, explain your solution and code.
+Use the language of your choosing. We've included starter files for some
+languages where you can pseudocode, explain your solution and code.
 
-## Before you start coding:
+## Before you start coding
 
 1. Rewrite the problem in your own words
 2. Validate that you understand the problem
